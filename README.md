@@ -209,7 +209,7 @@ index 6fcdf4d2..140de900 100644
        "cacheVariables": {
 -        "CMAKE_HIP_FLAGS": "-parallel-jobs=4",
 -        "AMDGPU_TARGETS": "gfx940;gfx941;gfx942;gfx1010;gfx1012;gfx1030;gfx1100;gfx1101;gfx1102;gfx1151;gfx1200;gfx1201;gfx908:xnack-;gfx90a:xnack+;gfx90a:xnack-",
-+        "CMAKE_HIP_FLAGS": "-j4",
++        "CMAKE_HIP_FLAGS": "",
 +          "GPU_TARGETS": "gfx900",
          "OLLAMA_RUNNER_DIR": "rocm"
        }
@@ -323,7 +323,10 @@ rc-update add ollama default
 
 ### Consideraciones de hardware
 
-En mi caso, la VRAM asignada por defecto a la iGPU era de 512 MB, lo cual resultaba insuficiente. Modificando la BIOS, pude aumentarla a 2 GB, permitiendo ejecutar modelos como `deepseek-coder:1.3b` o `qwen2.5-coder:1.5b` con offload a la VRAM (memoria compartida con la RAM).
+En mi caso, la VRAM asignada por defecto a la iGPU era de 512 MB, lo cual resultaba insuficiente. Modificando la BIOS, pude aumentarla a 2 GB, permitiendo ejecutar modelos como `deepseek-coder:1.3b` o `qwen2.5-coder:1.5b` con offload a la VRAM (memoria compartida con la RAM). 
+
+### BIOS
+Al encender la laptop, cuando se muestra el logo de lenovo, con F1 se puede acceder a la BIOS, despues hay que ir hacia Config, y buscar el parametro Display, despues UMA Framebuffer size hay un menu desplegable, con las opciones para modificar la RAM que el sistema asigna como VRAM.
 
 Los modelos que funcionan adecuadamente en mi configuración son:
 
